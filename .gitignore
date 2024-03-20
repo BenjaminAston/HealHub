@@ -1,7 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,macos,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,macos,windows
 
-### macOS ###
+### macOS and Windows 11 ###
 # General
 .DS_Store
 .AppleDouble
