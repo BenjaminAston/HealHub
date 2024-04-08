@@ -36,25 +36,30 @@ def serve_css(filename):
 def serve_css3():
     return static_file("style3.css", root="python för healhub/static/css")
 
-#Route to handle saving new entries
-@route("/save/", method="POST")
-def save_info():
-    title = request.forms.get("title")
-    article = request.forms.get("article")
+# Route to serve kontakta oss.html
+@route("/kontakta-oss")
+def serve_kontakta_oss():
+    return template("python för healhub/views/kontakta oss.html")
 
-    info = get_info_from_file()
-    id = create_id(info)
+# Route to serve övningar.html
+@route("/ovningar")
+def serve_ovningar():
+    return template("python för healhub/views/övningar.html")
 
-    info.append({
-        "title": title,
-        "article": article,
-        "id": id
-    })
+# Route to serve tack.html
+@route("/tack")
+def serve_tack():
+    return template("python för healhub/views/tack.html")
 
-    with open("static/wiki.json", "w") as my_file:
-        json.dump(info, my_file, indent=4)
+# Route to serve tipsa övningar.html
+@route("/tipsa-ovningar")
+def serve_tipsa_ovningar():
+    return template("python för healhub/views/tipsa övningar.html")
 
-    redirect("/")
+# Route to serve Fysioterapeut.html
+@route("/Fysioterapeut")
+def serve_fysioterapeut():
+    return template("python för healhub/views/Fysioterapeut.html")
 
 #Run the server
 if __name__ == "__main__":
