@@ -12,7 +12,7 @@
 }
 
 .human-body svg:hover path {
-    fill: #ff7d16;
+    fill: #fe7b00;
 }
 
 .human-body svg {
@@ -90,4 +90,19 @@
     top: 455px;
 }
 
+.head path,
+.left-shoulder path,
+.right-shoulder path,
+.left-arm path,
+.right-arm path,
+.chest path,
+.stomach path,
+.left-leg path,
+.right-leg path,
+.left-hand path,
+.right-hand path,
+.left-foot path,
+.right-foot path {
+    fill: rgb(0, 234, 255);
+}
 
