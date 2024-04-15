@@ -23,22 +23,16 @@ header {
     margin: 0 auto;
     padding: 0 20px;
     border-radius: 20px;
-    /* Add border radius */
 }
 
-.navbar-nav .nav-link:hover {
+.navbar-nav .nav-link:hover{
     color: #00ddff;
     /* Color for links on hover */
 }
 
-/* Style the dropdown menu */
-.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-    /* Show the dropdown menu on hover */
-    background-color: #ffffff;
-    /* Background color for the dropdown menu */
+.navbar-brand:hover {
+color: #00ddff;
 }
-
 .nav-links {
     list-style: none;
     display: flex;
