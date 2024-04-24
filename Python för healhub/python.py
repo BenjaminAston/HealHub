@@ -136,6 +136,10 @@ def serve_tipsa_ovningar():
 def serve_fysioterapeut():
     return template("python för healhub/views/Fysioterapeut.html")
 
+@route("/Login")
+def Login():
+    return template("python för healhub/views/Login.html")
+
 # Kör servern
 if __name__ == "__main__":
     run(host="127.0.0.1", port=8080, debug=True)
