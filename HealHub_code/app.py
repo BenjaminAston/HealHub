@@ -61,11 +61,11 @@ class LoginForm(FlaskForm):
 '''Retunerar en lista av titlar och artiklarna från filen: "wiki.json" '''
 def get_info_from_file():
     try:
-        with open("python för healhub/static/wiki.json", "r") as my_file:
+        with open("/static/wiki.json", "r") as my_file:
             info = json.load(my_file)
         return info
     except FileNotFoundError:
-        with open("static/wiki.json", "w") as my_file:
+        with open("/static/wiki.json", "w") as my_file:
             json.dump([], my_file)
         return []
 
