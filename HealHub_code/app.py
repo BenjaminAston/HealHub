@@ -65,7 +65,7 @@ def get_info_from_file():
             info = json.load(my_file)
         return info
     except FileNotFoundError:
-        with open("/static/wiki.json", "w") as my_file:
+        with open("HealHub_code/static/wiki.json", "w") as my_file:
             json.dump([], my_file)
         return []
 
