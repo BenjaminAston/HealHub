@@ -174,3 +174,8 @@ input[type="submit"]:hover {
     display: table;
     clear: both;
 }
+
+section {
+    padding: 20px;
+    background-color: #08ffd2;
+}
