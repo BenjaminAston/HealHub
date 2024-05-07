@@ -1,14 +1,13 @@
 /* Set a background color and font for the whole page */
 body {
     font-family: Arial, sans-serif;
-    height: 300px;
+    /* height: 300px; Remove this line */
     background-color: rgb(0, 255, 191);
     /* For browsers that do not support gradients */
     background-image: linear-gradient(to right, rgb(0, 255, 191), rgb(0, 255, 251));
-
 }
 
-/* Style the header */
+/* Adjust the padding of the header */
 header {
     background-color: none;
     color: #6d198c;
@@ -51,13 +50,34 @@ color: #00ddff;
 /* Style the main content */
 main {
     max-width: 1000px;
-    position: static;
     margin: 20px auto;
-    padding: 200px;
+    padding: 20px; /* Update padding */
     background-color: #fff;
-    height: 700px;
+    /* height: 700px; Remove this line */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: top,left;
+    text-align: left;
+    overflow: hidden; /* Add overflow property to contain floated elements */
+}
+main>img{
+    margin: 20px 0 20px 20px;
+    width: 25%;
+    float:right;
+    border: 5px solid #09dee1;
+}
+#image-modal{
+    max-width: auto;
+}
+/* Adjust the padding of the container */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px; /* Update padding */
+}
+h3{
+    text-align: center;
+}
+p{
+    font-size: small;
 }
 
 .hero {
