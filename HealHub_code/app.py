@@ -135,11 +135,6 @@ def serve_om_oss():
 def serve_huvud():
     return render_template("huvud.html")
 
-# Route som tar en till vaxel.html (vänster axel)
-@app.route("/vaxel.html")
-def serve_vaxel():
-    return render_template("vaxel.html")
-
 # Route som tar en till haxel.html (höger axel)
 @app.route("/haxel.html")
 def serve_haxel():
@@ -150,10 +145,6 @@ def serve_haxel():
 def serve_bröst():
     return render_template("bröst.html")
 
-# Route som tar en till varm.html (vänster arm)
-@app.route("/varm.html")
-def serve_varm():
-    return render_template("varm.html")
 
 # Route som tar en till harm.html (höger arm)
 @app.route("/harm.html")
@@ -165,30 +156,17 @@ def serve_harm():
 def serve_mage():
     return render_template("mage.html")
 
-# Route som tar en till vben.html (vänster ben)
-@app.route("/vben.html")
-def serve_vben():
-    return render_template("vben.html")
 
 # Route som tar en till hben.html (höger ben)
 @app.route("/hben.html")
 def serve_hben():
     return render_template("hben.html")
 
-# Route som tar en till vhand.html (vänster hand)
-@app.route("/vhand.html")
-def serve_vhand():
-    return render_template("vhand.html")
 
 # Route som tar en till hhand.html (höger hand)
 @app.route("/hhand.html")
 def serve_hhand():
     return render_template("hhand.html")
-
-# Route som tar en till vfot.html (vänster fot)
-@app.route("/vfot.html")
-def serve_vfot():
-    return render_template("vfot.html")
 
 # Route som tar en till hfot.html (höger fot)
 @app.route("/hfot.html")
@@ -229,6 +207,10 @@ def serve_tipsa_ovningar():
 @app.route("/Fysioterapeut")
 def serve_fysioterapeut():
     return render_template("Fysioterapeut.html")
+
+@app.route("/login")
+def serve_login():
+    return render_template("login.html")
 
 # Kör servern
 if __name__ == "__main__":

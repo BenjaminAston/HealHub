@@ -50,11 +50,14 @@ color: #00ddff;
 
 /* Style the main content */
 main {
-    max-width: 1200px;
-    margin: 30px auto;
+    max-width: 1000px;
+    position: static;
+    margin: 20px auto;
     padding: 200px;
     background-color: #fff;
+    height: 700px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: top,left;
 }
 
 .hero {
@@ -86,6 +89,11 @@ main {
 
 .cta-button:hover {
     background-color: #08ffd2;
+}
+
+.dropdown-menu {
+    right: 5%;
+    left: auto;
 }
 
 

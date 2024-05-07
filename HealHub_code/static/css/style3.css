@@ -1,12 +1,18 @@
 .human-body {
     width: 100px;
-    position: relative;
+    position: absolute;
     padding-top: 50px;
-    height: 300px;
+    height: 200px;
     display: block;
     margin: 20px auto;
+    top: 200px;
 }
-
+.human-body{
+    display: block;
+  margin-left: 10%;
+  margin-right: auto;
+  width: 40%;
+}
 .human-body svg:hover {
     cursor: pointer;
 }
