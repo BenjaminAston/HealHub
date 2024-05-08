@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
@@ -125,6 +125,11 @@ def register():
         return redirect(url_for('login'))
 
     return render_template('register.html', form=form)
+
+@app.route('/progress_report', methods=['POST'])
+def progress_report():
+    if request.method == 'POST':
+        progress = request.form['progress']
 
 # Route som tar en till huvud.html
 @app.route("/om-oss.html")
