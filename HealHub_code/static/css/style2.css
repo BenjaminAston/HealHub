@@ -24,12 +24,17 @@ header {
     padding: 0 20px;
     border-radius: 20px;
 }
-
+  
 .navbar-nav .nav-link:hover{
     color: #00ddff;
     /* Color for links on hover */
 }
-
+.navbar-brand:hover {
+    color: #00ddff; /* Change to the color you want on hover */
+    background-color:  #00ddff; /* Change to the background color you want on hover */
+    transition: background-color 0.3s ease; /* Add transition effect */
+  }
+  
 .navbar-brand:hover {
 color: #00ddff;
 }
@@ -174,7 +179,38 @@ input[type="submit"]:hover {
     float: left;
     width: 24.99999%;
 }
-
+/* Style all font awesome icons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+  }
+  
+  /* Set a specific color for each brand */
+  
+  /* Facebook */
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  .fa-instagram {
+    background: #ee5755;
+    color: white;
+  }
+  
 @media only screen and (max-width: 700px) {
     .responsive {
         width: 49.99999%;
