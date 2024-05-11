@@ -126,17 +126,6 @@ footer {
     box-sizing: border-box;
 }
 
-/* Apply basic styling to the form */
-form {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 
 /* Style the labels for the form elements */
 form p {
