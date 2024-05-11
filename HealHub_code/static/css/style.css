@@ -1,10 +1,20 @@
-/* Set a background color and font for the whole page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    display: block;
+    justify-content: center;
+    align-items: center;
     font-family: Arial, sans-serif;
-    /* height: 300px; Remove this line */
+    height: 300px;
     background-color: rgb(0, 255, 191);
     /* For browsers that do not support gradients */
     background-image: linear-gradient(to right, rgb(0, 255, 191), rgb(0, 255, 251));
+    max-width: 100%;
+    
 }
 
 /* Adjust the padding of the header */
@@ -23,19 +33,14 @@ header {
     padding: 0 20px;
     border-radius: 20px;
 }
-  
+
 .navbar-nav .nav-link:hover{
     color: #00ddff;
     /* Color for links on hover */
 }
+
 .navbar-brand:hover {
-    color: #00ddff; /* Change to the color you want on hover */
-    background-color:  #00ddff; /* Change to the background color you want on hover */
-    transition: background-color 0.3s ease; /* Add transition effect */
-  }
-  
-.navbar-brand:hover {
-color: #00ddff;
+    color: #00ddff;
 }
 .nav-links {
     list-style: none;
@@ -58,7 +63,6 @@ main {
     margin: 20px auto;
     padding: 20px; /* Update padding */
     background-color: #fff;
-    /* height: 700px; Remove this line */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: left;
     overflow: hidden; /* Add overflow property to contain floated elements */
@@ -142,18 +146,6 @@ footer {
 
 * {
     box-sizing: border-box;
-}
-
-/* Apply basic styling to the form */
-form {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Style the labels for the form elements */
