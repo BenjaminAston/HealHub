@@ -69,18 +69,17 @@
         <div class="träning">
             <h2>Ytterligare information</h2>
             <p>Här hittar du fler resurser och tips för att hålla axlarna starka.</p>
-            <form>
+            <form id="progressForm" action="/progress_report" method="POST">
                 <label for="progress">Din framsteg:</label>
                 <input type="text" id="progress" name="progress">
                 <button type="submit">Spara</button>
             </form>
             <div class="feedback-form">
                 <h3>Ge oss feedback</h3>
-                <textarea placeholder="Din feedback..."></textarea>
-                <button type="submit">Skicka</button>
+                <textarea id="feedback" placeholder="Din feedback..."></textarea>
+                <button id="submitFeedback" type="button">Skicka</button>
             </div>
         </div>
-    </section>
 
         <section id="övningar">
             <div class="träning">

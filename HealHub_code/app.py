@@ -130,7 +130,8 @@ def register():
 def progress_report():
     if request.method == 'POST':
         progress = request.form['progress']
-        return 'framsteg sparad' + progress
+        return 'framsteg sparad: ' + progress
+
 
 # Route som tar en till huvud.html
 @app.route("/om-oss.html")
