@@ -83,6 +83,28 @@ def create_id(info):
             highest_id = entry["id"] + 1
     return highest_id
 
+def search_website(query):
+    # For simplicity, let's assume we have a dictionary of page names and their URLs
+    pages = {
+        'start': '/',
+        'övningar': '/ovningar',
+        'fysioterapeut': '/Fysioterapeut',
+        'tipsa': '/tipsa-ovningar',
+        'kontakta oss': '/kontakta-oss',
+        'huvud': '/huvud.html',
+        'axel': '/haxel.html',
+        'arm': '/harm.html',
+        'bröst': '/bröst.html',
+        'mage': '/mage.html',
+        'ben': '/hben.html',
+        'hand': '/hhand.html',
+        'fot': '/hfot.html',
+    }
+
+    # Search for pages containing the query string (case insensitive)
+    results = {name: url for name, url in pages.items() if query.lower() in name.lower()}
+    return results
+
 # Route som tar en till huvud sidan (index)
 @app.route("/")
 def index():
@@ -226,6 +248,27 @@ def serve_fysioterapeut():
 @app.route("/login")
 def serve_login():
     return render_template("login.html")
+
+@app.route('/search', methods=['GET'])
+def search():
+    query = request.args.get('query')
+    if not query:
+        return redirect(url_for('index'))  # Redirect to home if no query
+
+    results = search_website(query)
+
+    if results:
+        # If there are results, check if there's only one match
+        if len(results) == 1:
+            # Redirect to the single result
+            return redirect(next(iter(results.values())))
+        else:
+            # Show the search results if multiple matches are found
+            return render_template('search.html', query=query, results=results)
+    else:
+        # Show a message if no results are found
+        return render_template('search.html', query=query, results=None)
+
 
 # Kör servern
 if __name__ == "__main__":
