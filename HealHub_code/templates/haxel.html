@@ -75,11 +75,6 @@
                 <button type="submit">Spara</button>
             </form>
         </div>
-        <dialog open class="feedback-form">
-            <h3>Ge oss feedback</h3>
-            <textarea id="feedback" placeholder="Din feedback..."></textarea>
-            <button class="submitFeedback" type="button">Skicka</button>
-        </dialog>
 
         <section id="övningar">
             <div class="träning">
@@ -111,6 +106,16 @@
                     <strong>Sömn:</strong> Sov på en madrass som ger bra stöd för din rygg och använd en kudde som håller nacken i en neutral position. Undvik att sova på magen för att undvika onödig stress på axlar och ryggrad.
                 </p>
         </section>
+        
+        <button type="button" onclick="document.getElementById('feedback-dialog').showModal()">Ge feedback</button>
+        <dialog class="feedback-form" id="feedback-dialog">
+            <form method = "dialog">
+                <h3>Ge oss feedback</h3>
+                <textarea id="feedback" placeholder="Din feedback..."></textarea>
+                <button class="submitFeedback" type="button">Skicka</button>
+            </form>
+            <button onclick="document.getElementById('feedback-dialog').close()">Stäng</button>
+        </dialog>
     </main>
    <footer> 
     &copy; 2024 HealHub. All rights reserved.
