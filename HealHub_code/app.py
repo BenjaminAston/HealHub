@@ -205,6 +205,14 @@ def serve_ovningar():
 def serve_tack():
     return render_template("tack.html")
 
+@app.route("/t-tack")
+def serve_ttack():
+    return render_template("t-tack.html")
+
+@app.route("/tips-tack")
+def serve_tipstack():
+    return render_template("tips-tack.html")
+
 # Route till tipsa övningar.html
 @app.route("/tipsa-ovningar")
 def serve_tipsa_ovningar():
