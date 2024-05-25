@@ -57,6 +57,32 @@ header {
     font-weight: bold;
 }
 
+.namelogout {
+    justify-content: space-between;
+    margin-left: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.name {
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.logout {
+    text-decoration: none;
+    color: #333;
+}
+
+button.btn.btn-outline-success {
+    color: #333;
+    border-color: #08ffd2;
+}
+
+button.btn.btn-outline-success:hover{
+    background-color: #08ffd2;
+}
+
 /* Style the main content */
 main {
     max-width: 1000px;
