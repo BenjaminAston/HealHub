@@ -74,15 +74,26 @@
                 <img src="/static/images/pic2.jpg" alt="Person som gör Axel Övningar">
             </div>
         </section>
-        <div class="träning">
-            <h2>Ytterligare information</h2>
-            <p>Här hittar du fler resurser och tips för att hålla axlarna starka.</p>
-            <form id="progressForm" action="/progress_report" method="POST">
-                <label for="progress">Din framsteg:</label>
-                <input type="text" id="progress" name="progress">
-                <button type="submit">Spara</button>
+        <section id="log-exercise">
+            <h2>Log Exercise</h2>
+            <form id="exerciseTracker" action="/track_exercise" method="POST">
+                <label for="reps">Antal repetitioner:</label>
+                <input type="number" id="reps" name="reps" min="1" max="100">
+                <button type="submit">Logga</button>
             </form>
-        </div>
+            <div id="logged-reps">
+                <h3>Logged Repetitions</h3>
+                {% if reps %}
+                    <p>Nya reps: {{ reps }}</p>
+                    <p>Förra reps:</p>
+                    <ul>
+                        {% for prev_reps in previous_reps %}
+                            <li>{{ prev_reps }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </section>
 
         <section id="övningar">
             <div class="träning">

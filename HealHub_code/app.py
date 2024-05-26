@@ -161,6 +161,12 @@ def serve_huvud():
 def serve_haxel():
     return render_template("haxel.html")
 
+@app.route('/track_exercise', methods=['POST'])
+def track_exercise():
+    reps = request.form.get('reps')
+    print(f'Reps logged: {reps}')
+    return render_template('haxel.html', reps=reps)
+
 # Route som tar en till bröst.html
 @app.route("/bröst.html")
 def serve_bröst():
@@ -260,6 +266,9 @@ def search():
     else:
         # Show a message if no results are found
         return render_template('search.html', query=query, results=None)
+    
+
+
 
 
 # Kör servern
