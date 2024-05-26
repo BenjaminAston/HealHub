@@ -1,17 +1,11 @@
-document.getElementById('progress').addEventListener('submit',function(event){
-    var progessInput = document.getElementById('progress')
-    if (progressInput.value.trim() === '') {
-        alert('Framsteg fält kan inte vara tom');
-        event.preventDefault();
+function showFeedback() {
+    var feedbackText = document.getElementById('feedback').value.trim();
+    if (feedbackText === '') {
+        alert('Framsteg fält kan inte vara tomt');
+        return;
     }
-});
 
-document.getElementById('submitFeedback').addEventListener('click', function() {
-    var feedbackTextarea = document.getElementById('feedback');
-    if (feedbackTextarea.value.trim() === '') {
-        alert('Feedback fält kan inte vara tom');
-    } else {
-        alert('Tack för din feedback!');
-        feedbackTextarea.value = '';
-    }
-});
+    document.getElementById('displayed-feedback').innerText = feedbackText;
+    document.getElementById('feedback-display').style.display = 'block';
+    document.getElementById('feedback-dialog').close();
+}
