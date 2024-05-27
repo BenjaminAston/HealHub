@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect, request
+from flask import Flask, render_template, url_for, redirect, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
@@ -156,16 +156,28 @@ def serve_om_oss():
 def serve_huvud():
     return render_template("huvud.html")
 
+logged_reps = []
+
 # Route som tar en till haxel.html (höger axel)
 @app.route("/haxel.html")
 def serve_haxel():
-    return render_template("haxel.html")
+    return render_template("haxel.html", previous_reps=logged_reps, enumerate=enumerate)
+
+# Route som loggar reps på haxel.html (höger axel)
 
 @app.route('/track_exercise', methods=['POST'])
 def track_exercise():
     reps = request.form.get('reps')
-    print(f'Reps logged: {reps}')
-    return render_template('haxel.html', reps=reps)
+    if reps:
+        logged_reps.append(int(reps))  
+    return redirect(url_for('serve_haxel'))
+
+# Route som som tar bort reps på haxel.html (höger axel)
+@app.route('/delete_exercise/<int:index>', methods=['POST'])
+def delete_exercise(index):
+    if 0 <= index < len(logged_reps):
+        logged_reps.pop(index)
+    return redirect(url_for('serve_haxel'))
 
 # Route som tar en till bröst.html
 @app.route("/bröst.html")
