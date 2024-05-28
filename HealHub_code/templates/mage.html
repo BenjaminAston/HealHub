@@ -76,36 +76,73 @@
                 <img src="/static/images/rygg.jpg" alt="rygg Övningar">
             </div>
         </section>
-        <div class="träning">
-            <h2>Ytterligare information</h2>
-            <p>Här hittar du fler resurser och tips för att hålla brösten starka och friska.</p>
-            <form>
-                <label for="progress">Dina framsteg:</label>
-                <input type="text" id="progress" name="progress">
-                <button type="submit">Spara</button>
+        <section id="log-exercise">
+            <h2>Mag- och Rygg Reps</h2>
+            <form id="exerciseTracker" action="{{ url_for('track_exercise', category='mage') }}" method="POST">
+                <label for="reps">Antal repetitioner:</label>
+                <input type="number" id="reps" name="reps" min="1" max="100" required>
+                <button type="submit">Logga</button>
             </form>
-            <div class="feedback-form">
-                <h3>Ge oss feedback</h3>
-                <textarea placeholder="Din feedback..."></textarea>
-                <button type="submit">Skicka</button>
+            <div id="logged-reps">
+                <h3>Loggad Reps</h3>
+                {% if previous_reps %}
+                    <p>Tidigare reps:</p>
+                    <ul>
+                        {% for index, prev_reps in enumerate(previous_reps) %}
+                            <li>
+                                {{ prev_reps }}
+                                <form action="{{ url_for('delete_exercise', category='mage', index=index) }}" method="POST" style="display:inline;">
+                                    <button type="submit">Ta bort</button>
+                                </form>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
             </div>
-        </div>
-    </section>
+        </section>
 
         <section id="övningar">
             <div class="träning">
                 <h2>Utförande övningar</h2>
                 <div class="row">
                     <!-- Beskrivningar av övningar, bilder och videor -->
+                    <h3>Övning 1: Crunches</h3>
+                    <p>Gör crunches genom att ligga på ryggen med böjda knän och fötterna på golvet. Lyft axlarna från golvet genom att använda magmusklerna och sänk dem sedan kontrollerat tillbaka. Upprepa 10-15 gånger.</p>
+                    <h3>Övning 2: Plank</h3>
+                    <p>Utför plankan genom att ligga raklång med underarmarna i golvet och kroppen i en rak linje från huvudet till fötterna. Håll positionen i 30 sekunder till en minut.</p>
+                    <h3>Övning 3: Superman</h3>
+                    <p>Ligg på magen med armarna sträckta framför dig. Lyft samtidigt armarna, bröstet och benen från golvet och håll positionen i några sekunder innan du sänker ner igen. Upprepa 10-15 gånger.</p>
+                    <h3>Övning 4: Ryggresningar</h3>
+                    <p>Utför ryggresningar genom att ligga på magen med händerna bakom huvudet. Lyft övre delen av kroppen från golvet genom att använda ryggmusklerna och sänk sedan kontrollerat tillbaka. Upprepa 10-15 gånger.</p>
                 </div>
             </div>
         </section>
+        
         <section id="mer-info">
             <div class="träning">
                 <h2>Ytterligare information</h2>
-                <p>Här hittar du fler resurser och tips för att hålla din axel stark.</p>
+                <p>Här hittar du fler resurser och tips för att hålla din mage och rygg starka och smidiga.</p>
+                <p>
+                    <strong>Korrekt teknik:</strong> Se till att använda korrekt form och teknik under träning för att undvika skador och maximera effektiviteten av övningarna.
+                </p>
+                <p>
+                    <strong>Andning:</strong> Andas regelbundet och kontrollerat under varje övning för att stödja stabilisering av magen och ryggen.
+                </p>
+                <p>
+                    <strong>Vila och återhämtning:</strong> Ge dina mag- och ryggmuskler tillräcklig vila mellan träningspass för att främja muskelåterhämtning och förhindra överansträngning.
+                </p>
             </div>
         </section>
+
+        <button type="button" onclick="document.getElementById('feedback-dialog').showModal()">Ge feedback</button>
+        <dialog class="feedback-form" id="feedback-dialog">
+            <form method="dialog">
+                <h3>Ge oss feedback</h3>
+                <textarea id="feedback" placeholder="Din feedback..."></textarea>
+                <button class="submitFeedback" type="submit">Skicka</button>
+            </form>
+            <button onclick="document.getElementById('feedback-dialog').close()">Stäng</button>
+        </dialog>
     </main>
 </body>
 <footer> 
