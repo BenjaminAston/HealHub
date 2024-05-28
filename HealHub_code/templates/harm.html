@@ -8,6 +8,7 @@
     <title>HealHub</title>
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <link rel="stylesheet" type="text/css" href="/static/css/style3.css">
+    <script type="text/javascript" src="/static/WorkoutTracker.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -76,40 +77,11 @@
                 <img src="/static/images/arms.jpg" alt="Axel Övningar">
             </div>
         </section>
-        <section id="log-exercise">
-            <h2>Arm Reps</h2>
-            <form id="exerciseTracker" action="{{ url_for('track_exercise', category='harm') }}" method="POST">
-                <label for="reps">Antal repetitioner:</label>
-                <input type="number" id="reps" name="reps" min="1" max="100" required>
-                <button type="submit">Logga</button>
-            </form>
-            <div id="logged-reps">
-                <h3>Loggad Reps</h3>
-                {% if previous_reps %}
-                    <p>Förra reps:</p>
-                    <ul>
-                        {% for index, prev_reps in enumerate(previous_reps) %}
-                            <li>
-                                {{ prev_reps }}
-                                <form action="{{ url_for('delete_exercise', category='harm', index=index) }}" method="POST" style="display:inline;">
-                                    <button type="submit">Ta bort</button>
-                                </form>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
-        </section>
         <div class="träning">
             <h2>Ytterligare information</h2>
             <p>Här hittar du fler resurser och tips för att hålla armarna starka och rörliga.</p>
            
-            <div class="feedback-form">
-                <h3>Ge oss feedback</h3>
-                <textarea placeholder="Din feedback..."></textarea>
-                <button type="submit">Skicka</button>
-            </div>
-        </div>
+            
     </section>
 
     <section id="övningar">
@@ -127,6 +99,9 @@
                     <p>Stå med en hantel i varje hand vid sidan av kroppen. Lyft armarna ut åt sidan tills de är i axelhöjd och sänk dem sedan långsamt tillbaka. Upprepa 10-15 gånger.</p>
             </div>
         </div>
+        <section>
+            <div id="app"></div>
+        </section>
         <section id="mer-info">
             <div class="träning">
                 <h2>Ytterligare information</h2>
