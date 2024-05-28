@@ -112,21 +112,46 @@
         </div>
     </section>
 
-        <section id="övningar">
-            <div class="träning">
-                <h2>Utförande övningar</h2>
-                <div class="row">
-                    <!-- Beskrivningar av övningar, bilder och videor -->
-                </div>
+    <section id="övningar">
+        <div class="träning">
+            <h2>Utförande övningar</h2>
+            <div class="row">
+                <!-- Beskrivningar av övningar, bilder och videor -->
+                <h3>Övning 1: Armhävningar</h3>
+                    <p>Gör armhävningar med raka armar och ryggen rak. Sänk kroppen mot marken och pressa sedan tillbaka upp till startpositionen. Upprepa 10-15 gånger.</p>
+                    <h3>Övning 2: Tricepsdips</h3>
+                    <p>Använd en bänk eller stol och placera händerna på kanten med fingrarna pekande framåt. Sänk kroppen nedåt genom att böja armarna och pressa sedan tillbaka upp till startpositionen. Upprepa 10-15 gånger.</p>
+                    <h3>Övning 3: Bicepscurls</h3>
+                    <p>Stå med en hantel i varje hand och armarna ned längs sidorna. Böj armarna för att lyfta hantlarna mot axlarna och sänk sedan kontrollerat tillbaka till startpositionen. Upprepa 10-15 gånger.</p>
+                    <h3>Övning 4: Sidolyft med hantlar</h3>
+                    <p>Stå med en hantel i varje hand vid sidan av kroppen. Lyft armarna ut åt sidan tills de är i axelhöjd och sänk dem sedan långsamt tillbaka. Upprepa 10-15 gånger.</p>
             </div>
-        </section>
+        </div>
         <section id="mer-info">
             <div class="träning">
                 <h2>Ytterligare information</h2>
-                <p>Här hittar du fler resurser och tips för att hålla din axel stark.</p>
+                <p>Här hittar du fler resurser och tips för att hålla dina armar starka och rörliga.</p>
+                <p>
+                    <strong>Träningsfrekvens:</strong> Träna dina armar regelbundet för att bibehålla styrka och rörlighet. Sträva efter att inkludera övningar för både biceps, triceps och underarmar i din träningsrutin.
+                </p>
+                <p>
+                    <strong>Kost:</strong> Ät en balanserad kost som är rik på protein för muskeluppbyggnad och vitaminer och mineraler för att stödja hälsosamma muskler och leder.
+                </p>
+                <p>
+                    <strong>Vila och återhämtning:</strong> Se till att ge dina armmuskler tillräcklig tid att återhämta sig mellan träningspass för att undvika överbelastning och skador.
+                </p>
             </div>
         </section>
-    </main>
+
+        <button type="button" onclick="document.getElementById('feedback-dialog').showModal()">Ge feedback</button>
+        <dialog class="feedback-form" id="feedback-dialog">
+            <form method="dialog">
+                <h3>Ge oss feedback</h3>
+                <textarea id="feedback" placeholder="Din feedback..."></textarea>
+                <button class="submitFeedback" type="submit">Skicka</button>
+            </form>
+            <button onclick="document.getElementById('feedback-dialog').close()">Stäng</button>
+        </dialog>
 </body>
 <footer> 
     &copy; 2024 HealHub. All rights reserved.
