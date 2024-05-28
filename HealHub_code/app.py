@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect, request, url_for
+from flask import Flask, render_template, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
@@ -156,28 +156,38 @@ def serve_om_oss():
 def serve_huvud():
     return render_template("huvud.html")
 
-logged_reps = []
+logged_reps = {
+    'haxel': [],
+    'harm': [],
+    'bröst': [],
+    'hben': [],
+    'mage': [],
+    'hfot': [],
+    'hhand': [],
+    'huvud': []
+}
 
-# Route som tar en till haxel.html (höger axel)
-@app.route("/haxel.html")
-def serve_haxel():
-    return render_template("haxel.html", previous_reps=logged_reps, enumerate=enumerate)
+def get_logged_reps(category):
+    return logged_reps.get(category, [])
 
-# Route som loggar reps på haxel.html (höger axel)
+@app.route("/<category>.html")
+def serve_template(category):
+    if category not in logged_reps:
+        return "Template not found", 404
+    return render_template(f"{category}.html", previous_reps=get_logged_reps(category), enumerate=enumerate, category=category)
 
-@app.route('/track_exercise', methods=['POST'])
-def track_exercise():
+@app.route('/track_exercise/<category>', methods=['POST'])
+def track_exercise(category):
     reps = request.form.get('reps')
-    if reps:
-        logged_reps.append(int(reps))  
-    return redirect(url_for('serve_haxel'))
+    if reps and category in logged_reps:
+        logged_reps[category].append(int(reps))
+    return redirect(url_for('serve_template', category=category))
 
-# Route som som tar bort reps på haxel.html (höger axel)
-@app.route('/delete_exercise/<int:index>', methods=['POST'])
-def delete_exercise(index):
-    if 0 <= index < len(logged_reps):
-        logged_reps.pop(index)
-    return redirect(url_for('serve_haxel'))
+@app.route('/delete_exercise/<category>/<int:index>', methods=['POST'])
+def delete_exercise(category, index):
+    if category in logged_reps and 0 <= index < len(logged_reps[category]):
+        logged_reps[category].pop(index)
+    return redirect(url_for('serve_template', category=category))
 
 # Route som tar en till bröst.html
 @app.route("/bröst.html")

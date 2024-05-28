@@ -75,8 +75,8 @@
             </div>
         </section>
         <section id="log-exercise">
-            <h2>Log Exercise</h2>
-            <form id="exerciseTracker" action="/track_exercise" method="POST">
+            <h2>Axel Reps</h2>
+            <form id="exerciseTracker" action="/track_exercise/haxel" method="POST">
                 <label for="reps">Antal repetitioner:</label>
                 <input type="number" id="reps" name="reps" min="1" max="100" required>
                 <button type="submit">Logga</button>
@@ -89,7 +89,7 @@
                         {% for index, prev_reps in enumerate(previous_reps) %}
                             <li>
                                 {{ prev_reps }}
-                                <form action="/delete_exercise/{{ index }}" method="POST" style="display:inline;">
+                                <form action="/delete_exercise/haxel/{{ index }}" method="POST" style="display:inline;">
                                     <button type="submit">Ta bort</button>
                                 </form>
                             </li>
