@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <link rel="stylesheet" type="text/css" href="/static/css/style3.css">
+    <script type="text/javascript" src="/static/WorkoutTracker.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -74,34 +75,8 @@
                 <img src="/static/images/chest.jpg" alt="personer som gör bröst övningar">
             </div>
         </section>
-        <section id="log-exercise">
-            <h2>Bröst Reps</h2>
-            <form id="exerciseTracker" action="{{ url_for('track_exercise', category='bröst') }}" method="POST">
-                <label for="reps">Antal repetitioner:</label>
-                <input type="number" id="reps" name="reps" min="1" max="100" required>
-                <button type="submit">Logga</button>
-            </form>
-            <div id="logged-reps">
-                <h3>Loggad Reps</h3>
-                {% if previous_reps %}
-                    <p>Förra reps:</p>
-                    <ul>
-                        {% for index, prev_reps in enumerate(previous_reps) %}
-                            <li>
-                                {{ prev_reps }}
-                                <form action="{{ url_for('delete_exercise', category='bröst', index=index) }}" method="POST" style="display:inline;">
-                                    <button type="submit">Ta bort</button>
-                                </form>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
-        </section>
-
         <section id="övningar">
             <div class="träning">
-                <h2>Utförande övningar</h2>
                 <div class="row">
                     <!-- Beskrivningar av övningar, bilder och videor -->
                     <h3>Övning 1: Bröstpress</h3>
@@ -117,6 +92,9 @@
                     <p>Stå mellan två kabelmaskiner med handtagen inställda i brösthöjd. Håll ett handtag i varje hand och dra dem framåt tills händerna möts framför bröstet. Återgå långsamt till startpositionen. Upprepa 10-15 gånger.</p>
                 </div>
             </div>
+        </section>
+        <section>
+            <div id="app"></div>
         </section>
         <section id="mer-info">
             <div class="träning">
