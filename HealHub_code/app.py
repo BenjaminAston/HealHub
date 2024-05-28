@@ -288,10 +288,6 @@ def search():
     else:
         # Show a message if no results are found
         return render_template('search.html', query=query, results=None)
-    
-
-
-
 
 # Kör servern
 if __name__ == "__main__":
