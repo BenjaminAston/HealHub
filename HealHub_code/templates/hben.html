@@ -66,17 +66,17 @@
     {% block content %}{% endblock %}
 </header>
 <body>
-      <main>
+    <main>
         <section id="about">
             <div class="träning">
-                <h1>Övningar för benen och knäna</h1>
-                <p>Utförande övningar regelbundet för att stärka och förbättra musklerna och ligamenten i ben samt knäna.</p>
-                <img src="/static/images/ben.jpg" alt="Axel Övningar">
+                <h1>Övningar för benen</h1>
+                <p>Utför övningar regelbundet för att stärka och förbättra rörligheten i benen och höfterna.</p>
+                <img src="/static/images/legs.jpg" alt="Övningar för benen">
             </div>
         </section>
         <section id="log-exercise">
-            <h2>{{ category | capitalize }} Reps</h2>
-            <form id="exerciseTracker" action="/track_exercise/{{ category }}" method="POST">
+            <h2>Ben Reps</h2>
+            <form id="exerciseTracker" action="{{ url_for('track_exercise', category='hben') }}" method="POST">
                 <label for="reps">Antal repetitioner:</label>
                 <input type="number" id="reps" name="reps" min="1" max="100" required>
                 <button type="submit">Logga</button>
@@ -84,12 +84,12 @@
             <div id="logged-reps">
                 <h3>Loggad Reps</h3>
                 {% if previous_reps %}
-                    <p>Förra reps:</p>
+                    <p>Tidigare reps:</p>
                     <ul>
                         {% for index, prev_reps in enumerate(previous_reps) %}
                             <li>
                                 {{ prev_reps }}
-                                <form action="/delete_exercise/{{ category }}/{{ index }}" method="POST" style="display:inline;">
+                                <form action="{{ url_for('delete_exercise', category='hben', index=index) }}" method="POST" style="display:inline;">
                                     <button type="submit">Ta bort</button>
                                 </form>
                             </li>
@@ -98,36 +98,49 @@
                 {% endif %}
             </div>
         </section>
-        <div class="träning">
-            <h2>Ytterligare information</h2>
-            <p>Här hittar du fler resurser och tips för att hålla benen samt knäna starka och friska.</p>
-            <form>
-                <label for="progress">Dina framsteg:</label>
-                <input type="text" id="progress" name="progress">
-                <button type="submit">Spara</button>
-            </form>
-            <div class="feedback-form">
-                <h3>Ge oss feedback</h3>
-                <textarea placeholder="Din feedback..."></textarea>
-                <button type="submit">Skicka</button>
-            </div>
-        </div>
-    </section>
 
         <section id="övningar">
             <div class="träning">
                 <h2>Utförande övningar</h2>
                 <div class="row">
                     <!-- Beskrivningar av övningar, bilder och videor -->
+                    <h3>Övning 1: Squats</h3>
+                    <p>Gör squats genom att böja knäna och sänka kroppen mot golvet. Se till att hålla ryggen rak och knäna pekande över tårna. Tryck sedan tillbaka upp till startpositionen. Upprepa 10-15 gånger.</p>
+                    <h3>Övning 2: Lunges</h3>
+                    <p>Utför utfall genom att ta ett stort steg framåt med ena foten och böj knäna så att båda benen bildar 90 graders vinkel. Tryck tillbaka till startpositionen och byt sida. Upprepa 10-15 gånger per sida.</p>
+                    <h3>Övning 3: Calf Raises</h3>
+                    <p>Stå med fötterna axelbrett isär och lyft sedan upp hälen så högt som möjligt medan du håller kroppen rak. Sänk sakta ner hälen till golvet. Upprepa 10-15 gånger.</p>
+                    <h3>Övning 4: Deadlifts</h3>
+                    <p>Utför marklyft genom att böja i höfterna och sänka kroppen framåt samtidigt som du håller ryggen rak. Greppa en vikt eller stång och lyft den upp genom att pressa ner i marken och räta på höfterna. Upprepa 10-15 gånger.</p>
                 </div>
             </div>
         </section>
+        
         <section id="mer-info">
             <div class="träning">
                 <h2>Ytterligare information</h2>
-                <p>Här hittar du fler resurser och tips för att hålla din axel stark.</p>
+                <p>Här hittar du fler resurser och tips för att hålla dina ben starka och smidiga.</p>
+                <p>
+                    <strong>Stretching:</strong> Glöm inte att stretcha dina benmuskler efter träning för att förbättra rörligheten och minska risken för skador.
+                </p>
+                <p>
+                    <strong>Kost och vätska:</strong> Se till att äta en balanserad kost med tillräckligt med protein och kolhydrater för att stödja muskelåterhämtning. Drick också tillräckligt med vatten för att hålla dig hydratiserad.
+                </p>
+                <p>
+                    <strong>Undvik överträning:</strong> Ge dina benmuskler tillräcklig vila mellan träningspass för att undvika överbelastning och överträning.
+                </p>
             </div>
         </section>
+
+        <button type="button" onclick="document.getElementById('feedback-dialog').showModal()">Ge feedback</button>
+        <dialog class="feedback-form" id="feedback-dialog">
+            <form method="dialog">
+                <h3>Ge oss feedback</h3>
+                <textarea id="feedback" placeholder="Din feedback..."></textarea>
+                <button class="submitFeedback" type="submit">Skicka</button>
+            </form>
+            <button onclick="document.getElementById('feedback-dialog').close()">Stäng</button>
+        </dialog>
     </main>
 </body>
 <footer> 
