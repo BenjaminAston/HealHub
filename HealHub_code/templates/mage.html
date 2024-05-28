@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <link rel="stylesheet" type="text/css" href="/static/css/style3.css">
+    <script type="text/javascript" src="/static/WorkoutTracker.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -76,39 +77,16 @@
                 <img src="/static/images/rygg.jpg" alt="rygg Övningar">
             </div>
         </section>
-        <section id="log-exercise">
-            <h2>Mag- och Rygg Reps</h2>
-            <form id="exerciseTracker" action="{{ url_for('track_exercise', category='mage') }}" method="POST">
-                <label for="reps">Antal repetitioner:</label>
-                <input type="number" id="reps" name="reps" min="1" max="100" required>
-                <button type="submit">Logga</button>
-            </form>
-            <div id="logged-reps">
-                <h3>Loggad Reps</h3>
-                {% if previous_reps %}
-                    <p>Tidigare reps:</p>
-                    <ul>
-                        {% for index, prev_reps in enumerate(previous_reps) %}
-                            <li>
-                                {{ prev_reps }}
-                                <form action="{{ url_for('delete_exercise', category='mage', index=index) }}" method="POST" style="display:inline;">
-                                    <button type="submit">Ta bort</button>
-                                </form>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
-        </section>
+        
 
         <section id="övningar">
             <div class="träning">
-                <h2>Utförande övningar</h2>
+                
                 <div class="row">
                     <!-- Beskrivningar av övningar, bilder och videor -->
                     <h3>Övning 1: Crunches</h3>
                     <p>Gör crunches genom att ligga på ryggen med böjda knän och fötterna på golvet. Lyft axlarna från golvet genom att använda magmusklerna och sänk dem sedan kontrollerat tillbaka. Upprepa 10-15 gånger.</p>
-                    <h3>Övning 2: Plank</h3>
+                    <h3>Övning 2: Plankan</h3>
                     <p>Utför plankan genom att ligga raklång med underarmarna i golvet och kroppen i en rak linje från huvudet till fötterna. Håll positionen i 30 sekunder till en minut.</p>
                     <h3>Övning 3: Superman</h3>
                     <p>Ligg på magen med armarna sträckta framför dig. Lyft samtidigt armarna, bröstet och benen från golvet och håll positionen i några sekunder innan du sänker ner igen. Upprepa 10-15 gånger.</p>
@@ -116,6 +94,9 @@
                     <p>Utför ryggresningar genom att ligga på magen med händerna bakom huvudet. Lyft övre delen av kroppen från golvet genom att använda ryggmusklerna och sänk sedan kontrollerat tillbaka. Upprepa 10-15 gånger.</p>
                 </div>
             </div>
+        </section>
+        <section>
+            <div id="app"></div>
         </section>
         
         <section id="mer-info">
