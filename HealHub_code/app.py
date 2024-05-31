@@ -265,6 +265,19 @@ def serve_tipsa_ovningar():
 def serve_fysioterapeut():
     return render_template("Fysioterapeut.html")
 
+@app.route('/info')
+def info():
+    faqs = [
+        {"question": "Hur registrerar jag mig?", "answer": "Klicka på registreringslänken på hemsidan och fyll i de nödvändiga uppgifterna."},
+        {"question": "Hur spårar jag mina framsteg?", "answer": "Gå till sektionen för övningsspårning och logga dina repetitioner."},
+        {"question": "Kan jag föreslå nya övningar?", "answer": "Ja, du kan föreslå nya övningar genom sidan 'Tipsa Övningar'."},
+        # Lägg till fler FAQ här
+    ]
+    
+    tip = "Värm alltid upp innan du börjar dina övningar."  # Statisk träningstips
+    
+    return render_template('info.html', faqs=faqs, tip=tip)
+
 @app.route("/login")
 def serve_login():
     return render_template("login.html")
