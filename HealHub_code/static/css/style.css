@@ -272,12 +272,3 @@ input[type="submit"]:hover {
     clear: both;
 }
 
-.feedback-form {
-    border: 1px solid #ccc;
-    padding: 20px;
-    width: 300px;
-}
-#feedback-display {
-    display: none;
-    margin-top: 20px;
-}
