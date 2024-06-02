@@ -98,6 +98,18 @@
                 </div>
             {% endfor %}
         </div>
+        <div class="section articles">
+            <h2>Artiklar</h2>
+            <ul class="list-group">
+                {% for article in articles %}
+                    <li class="list-group-item">
+                        <div class="article-title">{{ article.title }}</div>
+                        <div class="article-content">{{ article.content }}</div>
+                        <div class="article-meta">Postat av {{ article.author }}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 
 </body>
