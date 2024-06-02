@@ -59,7 +59,7 @@ class LoginForm(FlaskForm):
 
     submit = SubmitField('Login')
 
-'''Retunerar en lista av titlar och artiklarna från filen: "wiki.json" '''
+#Retunerar en lista av titlar och artiklarna från filen: "wiki.json"
 def get_info_from_file():
     try:
         with open("/static/wiki.json", "r") as my_file:
@@ -101,7 +101,6 @@ def search_website(query):
         'fot': '/hfot.html',
     }
 
-    # Search for pages containing the query string (case insensitive)
     results = {name: url for name, url in pages.items() if query.lower() in name.lower()}
     return results
 
@@ -111,6 +110,7 @@ def index():
     info = get_info_from_file()
     return render_template("index.html", info=info)
 
+# Route för login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -121,13 +121,14 @@ def login():
             return redirect(url_for('index'))
     return render_template('login.html', form=form)
 
+# Route för log out som tar en till log in
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('login'))
 
-
+# Route för registrering
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
@@ -140,6 +141,7 @@ def register():
 
     return render_template('register.html', form=form)
 
+# Route för progress report
 @app.route('/progress_report', methods=['POST'])
 def progress_report():
     if request.method == 'POST':
@@ -156,13 +158,10 @@ def serve_om_oss():
 def serve_huvud():
     return render_template("huvud.html")
 
-
-
 # Route som tar en till bröst.html
 @app.route("/bröst.html")
 def serve_bröst():
     return render_template("bröst.html")
-
 
 # Route som tar en till harm.html (höger arm)
 @app.route("/harm.html")
@@ -174,12 +173,10 @@ def serve_harm():
 def serve_mage():
     return render_template("mage.html")
 
-
 # Route som tar en till hben.html (höger ben)
 @app.route("/hben.html")
 def serve_hben():
     return render_template("hben.html")
-
 
 # Route som tar en till hhand.html (höger hand)
 @app.route("/hhand.html")
@@ -253,6 +250,8 @@ tips = [
         "Variera dina övningar för att träna olika muskelgrupper.",
         "Börja alltid med en nedvarvning och stretching."
     ]
+
+# Route för daily tips
 @app.route('/daily_tip')
 def daily_tip():
     today = datetime.datetime.now().date()
@@ -260,31 +259,29 @@ def daily_tip():
     daily_tip = tips[tip_index]
     return render_template('daily_tip.html', tip=daily_tip)
     
-
+# Route för login
 @app.route("/login")
 def serve_login():
     return render_template("login.html")
 
+#Route för search
 @app.route('/search', methods=['GET'])
 def search():
     query = request.args.get('query')
     if not query:
-        return redirect(url_for('index'))  # Redirect to home if no query
+        return redirect(url_for('index'))
 
     results = search_website(query)
 
     if results:
-        # If there are results, check if there's only one match
         if len(results) == 1:
-            # Redirect to the single result
             return redirect(next(iter(results.values())))
         else:
-            # Show the search results if multiple matches are found
             return render_template('search.html', query=query, results=results)
     else:
-        # Show a message if no results are found
         return render_template('search.html', query=query, results=None)
-    
+
+# Route för axel 
 @app.route("/haxel.html")
 def serve_haxel():
     return render_template("haxel.html")
@@ -302,7 +299,6 @@ logged_reps = {
 
 def get_logged_reps(category):
     return logged_reps.get(category, [])
-
 
 @app.route("/<category>")
 def serve_template(category):
