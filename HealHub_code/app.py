@@ -276,6 +276,11 @@ def search():
     else:
         # Show a message if no results are found
         return render_template('search.html', query=query, results=None)
+    
+@app.route("/haxel.html")
+def serve_haxel():
+    return render_template("haxel.html")
+
 logged_reps = {
     'haxel': [],
     'harm': [],
@@ -308,6 +313,7 @@ def delete_exercise(category, index):
     if category in logged_reps and 0 <= index < len(logged_reps[category]):
         logged_reps[category].pop(index)
     return redirect(url_for('serve_template', category=category))
+
 # Kör servern
 if __name__ == "__main__":
     db.create_all()
