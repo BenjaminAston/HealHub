@@ -117,7 +117,19 @@
                     <strong>Sömn:</strong> Sov på en madrass som ger bra stöd för din rygg och använd en kudde som håller nacken i en neutral position. Undvik att sova på magen för att undvika onödig stress på fötter och ryggrad.
                 </p>
             </div>
+
         </section>
+
+        <button type="button" onclick="document.getElementById('feedback-dialog').showModal()">Ge feedback</button>
+        <dialog class="feedback-form" id="feedback-dialog">
+            <form id="feedback-form" action="/tips-tack" method="get">
+                <h3>Ge oss feedback</h3>
+                <textarea id="feedback" name="feedback" placeholder="Din feedback..."></textarea>
+                <button class="submitFeedback" type="submit">Skicka</button>
+            </form>
+            <button onclick="document.getElementById('feedback-dialog').close()">Stäng</button>
+        </dialog>
+        
     </main>
 </body>
 <footer> 

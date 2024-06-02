@@ -114,9 +114,9 @@
 
         <button type="button" onclick="document.getElementById('feedback-dialog').showModal()">Ge feedback</button>
         <dialog class="feedback-form" id="feedback-dialog">
-            <form method="dialog">
+            <form id="feedback-form" action="/tips-tack" method="get">
                 <h3>Ge oss feedback</h3>
-                <textarea id="feedback" placeholder="Din feedback..."></textarea>
+                <textarea id="feedback" name="feedback" placeholder="Din feedback..."></textarea>
                 <button class="submitFeedback" type="submit">Skicka</button>
             </form>
             <button onclick="document.getElementById('feedback-dialog').close()">Stäng</button>
