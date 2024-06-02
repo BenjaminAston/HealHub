@@ -145,15 +145,17 @@
         </section>
 
 
-        <button type="button" onclick="document.getElementById('feedback-dialog').showModal()">Ge feedback</button>
-        <dialog class="feedback-form" id="feedback-dialog">
-            <form method="dialog">
-                <h3>Ge oss feedback</h3>
-                <textarea id="feedback" placeholder="Din feedback..."></textarea>
-                <button class="submitFeedback" type="submit">Skicka</button>
-            </form>
-            <button onclick="document.getElementById('feedback-dialog').close()">Stäng</button>
-        </dialog>
+    <button type="button" onclick="document.getElementById('feedback-dialog').showModal()">Ge feedback</button>
+    <dialog class="feedback-form" id="feedback-dialog">
+
+        <form id="feedback-form">
+            <h3>Ge oss feedback</h3>
+            <textarea id="feedback" placeholder="Din feedback..."></textarea>
+            <button class="submitFeedback" type="submit">Skicka</button>
+        </form>
+        <button id="close-button" onclick="document.getElementById('feedback-dialog').close()">Stäng</button>
+</dialog>
+
     </main>
 </body>
 <footer> 

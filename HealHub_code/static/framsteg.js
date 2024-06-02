@@ -1,11 +1,9 @@
-function showFeedback() {
-    var feedbackText = document.getElementById('feedback').value.trim();
-    if (feedbackText === '') {
-        alert('Framsteg fält kan inte vara tomt');
-        return;
-    }
 
-    document.getElementById('displayed-feedback').innerText = feedbackText;
-    document.getElementById('feedback-display').style.display = 'block';
-    document.getElementById('feedback-dialog').close();
+document.getElementById('feedback-form').onsubmit = function(event) {
+    event.preventDefault(); 
+
+
+    document.getElementById('feedback-dialog').innerHTML = `
+        <h3>Tack för din feedback!</h3>
+        <button onclick="document.getElementById('feedback-dialog').close()">Stäng</button>`;
 }
