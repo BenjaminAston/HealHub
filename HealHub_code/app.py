@@ -156,38 +156,7 @@ def serve_om_oss():
 def serve_huvud():
     return render_template("huvud.html")
 
-logged_reps = {
-    'haxel': [],
-    'harm': [],
-    'bröst': [],
-    'hben': [],
-    'mage': [],
-    'hfot': [],
-    'hhand': [],
-    'huvud': []
-}
 
-def get_logged_reps(category):
-    return logged_reps.get(category, [])
-
-@app.route("/<category>.html")
-def serve_template(category):
-    if category not in logged_reps:
-        return "Template not found", 404
-    return render_template(f"{category}.html", previous_reps=get_logged_reps(category), enumerate=enumerate, category=category)
-
-@app.route('/track_exercise/<category>', methods=['POST'])
-def track_exercise(category):
-    reps = request.form.get('reps')
-    if reps and category in logged_reps:
-        logged_reps[category].append(int(reps))
-    return redirect(url_for('serve_template', category=category))
-
-@app.route('/delete_exercise/<category>/<int:index>', methods=['POST'])
-def delete_exercise(category, index):
-    if category in logged_reps and 0 <= index < len(logged_reps[category]):
-        logged_reps[category].pop(index)
-    return redirect(url_for('serve_template', category=category))
 
 # Route som tar en till bröst.html
 @app.route("/bröst.html")
@@ -283,7 +252,7 @@ def info():
     
     return render_template('info.html', faqs=faqs, tips=tips)
     
-    
+
 @app.route("/login")
 def serve_login():
     return render_template("login.html")
