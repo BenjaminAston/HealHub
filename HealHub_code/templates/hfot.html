@@ -101,6 +101,31 @@
             </div>
             <section>
                 <div id="app"></div>
+                <section id="log-exercise">
+                    <h2>Arm Reps</h2>
+                    <form id="exerciseTracker" action="{{ url_for('track_exercise', category='hfot') }}" method="POST">
+                        <label for="reps">Antal repetitioner:</label>
+                        <input type="number" id="reps" name="reps" min="1" max="100" required>
+                        <button type="submit">Logga</button>
+                    </form>
+                    <div id="logged-reps">
+                        <h3>Loggad Reps</h3>
+                        {% if previous_reps %}
+                            <p>Förra reps:</p>
+                            <ul>
+                                {% for index, prev_reps in enumerate(previous_reps) %}
+                                    <li>
+                                        {{ prev_reps }}
+                                        <form action="{{ url_for('delete_exercise', category='hfot', index=index) }}" method="POST" style="display:inline;">
+                                            <button type="submit">Ta bort</button>
+                                        </form>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </section>
+        
     </section>
         </section>
         <section id="mer-info">
@@ -129,7 +154,7 @@
             </form>
             <button onclick="document.getElementById('feedback-dialog').close()">Stäng</button>
         </dialog>
-        
+
     </main>
 </body>
 <footer> 
