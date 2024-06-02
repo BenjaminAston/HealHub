@@ -118,7 +118,7 @@
                 </p>
             </div>
         </section>
-        
+
         <section id="log-exercise">
             <h2>Axel Reps</h2>
             <form id="exerciseTracker" action="{{ url_for('track_exercise', category='haxel') }}" method="POST">
@@ -143,6 +143,9 @@
                 {% endif %}
             </div>
         </section>
+        
+        <h1>Dagligt Träningstips</h1>
+        <p>{{ tip }}</p>
 
         <button type="button" onclick="document.getElementById('feedback-dialog').showModal()">Ge feedback</button>
         <dialog class="feedback-form" id="feedback-dialog">

@@ -242,16 +242,24 @@ def info():
         {"question": "Hur spårar jag mina framsteg?", "answer": "Gå till sektionen för övningsspårning och logga dina repetitioner."},
         {"question": "Kan jag föreslå nya övningar?", "answer": "Ja, du kan föreslå nya övningar genom sidan 'Tipsa Övningar'."},
     ]
+
     
-    tips = [
+    return render_template('info.html', faqs=faqs, tips=tips)
+
+
+tips = [
         "Värm alltid upp innan du börjar dina övningar.",
         "Använd rätt teknik för att undvika skador.",
         "Håll dig hydrerad under träningen.",
         "Variera dina övningar för att träna olika muskelgrupper.",
         "Börja alltid med en nedvarvning och stretching."
     ]
-    
-    return render_template('info.html', faqs=faqs, tips=tips)
+@app.route('/daily_tip')
+def daily_tip():
+    today = datetime.datetime.now().date()
+    tip_index = today.toordinal() % len(tips)
+    daily_tip = tips[tip_index]
+    return render_template('daily_tip.html', tip=daily_tip)
     
 
 @app.route("/login")
@@ -315,12 +323,7 @@ def delete_exercise(category, index):
         logged_reps[category].pop(index)
     return redirect(url_for('serve_template', category=category))
 
-@app.route('/daily_tip')
-def daily_tip():
-    today = datetime.datetime.now().date()
-    tip_index = today.toordinal() % len(tips)
-    daily_tip = tips[tip_index]
-    return render_template('daily_tip.html', tip=daily_tip)
+
 
 # Kör servern
 if __name__ == "__main__":
