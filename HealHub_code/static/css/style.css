@@ -294,7 +294,7 @@ button {
     cursor: pointer;
 }
 button:hover {
-    background-color: #0056b3;
+    background-color: #008cb3;
 }
 #logged-reps {
     margin-top: 20px;
