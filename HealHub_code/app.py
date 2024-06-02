@@ -284,8 +284,6 @@ def info():
     return render_template('info.html', faqs=faqs, tips=tips)
     
     
-    return render_template('info.html', faqs=faqs, tip=tip)
-
 @app.route("/login")
 def serve_login():
     return render_template("login.html")
