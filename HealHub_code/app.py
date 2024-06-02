@@ -304,7 +304,8 @@ logged_reps = {
 def get_logged_reps(category):
     return logged_reps.get(category, [])
 
-@app.route("/<category>.html")
+
+@app.route("/<category>")
 def serve_template(category):
     if category not in logged_reps:
         return "Template not found", 404
