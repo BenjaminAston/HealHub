@@ -130,12 +130,35 @@
             </div>
         </section>
 
+       
+
         <section id="mer-info">
             <div class="träning">
                 <h2>Ytterligare information</h2>
-                <p>Här hittar du fler resurser och tips för att hålla din axel stark.</p>
+                <p>Här hittar du fler resurser och tips för att hålla din mage och rygg starka och smidiga.</p>
+                <p>
+                    <strong>Korrekt teknik:</strong> Se till att använda korrekt form och teknik under träning för att undvika skador och maximera effektiviteten av övningarna.
+                </p>
+                <p>
+                    <strong>Stretching</strong> Glöm inte att stretcha dina benmuskler efter träning för att förbättra rörligheten och minska risken för skador.
+                </p>
+                <p>
+                    <strong>Vila och återhämtning:</strong> Ge din hand tillräcklig vila mellan träningspass för att främja muskelåterhämtning och förhindra överansträngning.
+                </p>
             </div>
         </section>
+
+        <button type="button" onclick="document.getElementById('feedback-dialog').showModal()">Ge feedback</button>
+        <dialog class="feedback-form" id="feedback-dialog">
+            <form id="feedback-form" action="/tips-tack" method="get">
+                <h3>Ge oss feedback</h3>
+                <textarea id="feedback" name="feedback" placeholder="Din feedback..."></textarea>
+                <button class="submitFeedback" type="submit">Skicka</button>
+            </form>
+            <button onclick="document.getElementById('feedback-dialog').close()">Stäng</button>
+        </dialog>
+        
+
     </main>
 </body>
 <footer> 
