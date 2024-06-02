@@ -272,3 +272,38 @@ input[type="submit"]:hover {
     clear: both;
 }
 
+#log-exercise {
+    background-color: #fff;
+    padding: 1px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+label {
+    font-weight: bold;
+}
+input, button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+button {
+    background-color: #00b3ff;
+    color: #fff;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+#logged-reps {
+    margin-top: 20px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+form {
+    display: inline;
+}
