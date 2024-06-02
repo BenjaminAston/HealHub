@@ -85,7 +85,6 @@ def create_id(info):
     return highest_id
 
 def search_website(query):
-    # For simplicity, let's assume we have a dictionary of page names and their URLs
     pages = {
         'start': '/',
         'övningar': '/ovningar',
