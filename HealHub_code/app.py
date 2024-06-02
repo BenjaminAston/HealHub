@@ -6,6 +6,7 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 import json
+import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -313,6 +314,13 @@ def delete_exercise(category, index):
     if category in logged_reps and 0 <= index < len(logged_reps[category]):
         logged_reps[category].pop(index)
     return redirect(url_for('serve_template', category=category))
+
+@app.route('/daily_tip')
+def daily_tip():
+    today = datetime.datetime.now().date()
+    tip_index = today.toordinal() % len(tips)
+    daily_tip = tips[tip_index]
+    return render_template('daily_tip.html', tip=daily_tip)
 
 # Kör servern
 if __name__ == "__main__":
