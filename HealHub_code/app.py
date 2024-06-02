@@ -273,13 +273,15 @@ def info():
         {"question": "Kan jag föreslå nya övningar?", "answer": "Ja, du kan föreslå nya övningar genom sidan 'Tipsa Övningar'."},
     ]
     
-    tip = [
+    tips = [
         "Värm alltid upp innan du börjar dina övningar.",
         "Använd rätt teknik för att undvika skador.",
         "Håll dig hydrerad under träningen.",
         "Variera dina övningar för att träna olika muskelgrupper.",
-        "Avsluta alltid med en nedvarvning och stretching.",
+        "Börja alltid med en nedvarvning och stretching."
     ]
+    
+    return render_template('info.html', faqs=faqs, tips=tips)
     
     
     return render_template('info.html', faqs=faqs, tip=tip)
